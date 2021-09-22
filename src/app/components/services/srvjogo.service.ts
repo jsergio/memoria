@@ -1,20 +1,28 @@
-import { Carta } from './../template/carta/carta.component';
+// import { CartaModel } from './srvjogo.service';
+// import { Carta } from './../template/carta/carta.component';
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-
-export interface Carta{
+export interface CartaModel{
   cartaface: string,
   cartaid: number,
   cartaverso: boolean
 }
 
+
+@Injectable({
+  providedIn: 'root'
+})
+
+
 export class SrvjogoService {
   
-  cartaobj:Carta;
-  jogo:number;
+  cartaobj:CartaModel={
+    cartaface : "assets/img/packmons/1.png",
+    cartaid : 1,
+    cartaverso : true
+  };
+
+  jogo:number=0;
 
   constructor() { }
 }

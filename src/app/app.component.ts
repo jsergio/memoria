@@ -1,4 +1,4 @@
-import { style } from '@angular/animations';
+// import { style } from '@angular/animations';
 import { Component } from '@angular/core';
 
 @Component({

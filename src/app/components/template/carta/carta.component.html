@@ -1,0 +1,26 @@
+<!-- <img src={{cartamostra}} alt="Falhou"> -->
+
+<p>
+ " ALLO " 
+</p>  
+<button (click)="onClick()">
+    Clicke-me
+</button>
+<div class="conteudo">
+<mat-grid-list 
+cols="2" md-gutter="2px" rowHeight="1:1" class="lista">
+  <mat-grid-tile class="celula">
+      <img mat-card-SM-image src={{cartaobj.cartaface}} alt="Falhou" 
+         (click) = "onClick()"  layout-fill class="tile-image">
+  </mat-grid-tile>
+  <mat-grid-tile class="celula">
+    <img mat-card-SM-image src={{cartaobj.cartaface}} alt="Falhou" layout-fill class="tile-image">
+  </mat-grid-tile>
+  <mat-grid-tile class="celula">    
+      <img mat-card-SM-image src={{cartaobj.cartaface}} alt="Falhou"layout-fill class="tile-image">
+  </mat-grid-tile>
+  <mat-grid-tile class="celula"> 
+    <img mat-card-SM-image src={{cartaobj.cartaface}} alt="Falhou"layout-fill class="tile-image">
+  </mat-grid-tile>
+</mat-grid-list>
+</div>

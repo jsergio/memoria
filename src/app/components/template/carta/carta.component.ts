@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { SrvjogoService } from './../../services/srvjogo.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 export interface Carta {
   cartaface: string,
   cartaid: number,
-  cartaverso: boolean
+  cartaverso: boolean,
+  cartaind:number,
+  cartafixa: boolean
 }
 
 @Component({
@@ -14,46 +17,62 @@ export interface Carta {
 
 export class CartaComponent implements OnInit {
         
-  cartaobj: Carta = {
-    cartaface : "assets/img/packmons/1.png",
-    cartaid : 1,
-    cartaverso : true
-  }
-  // cartamostra = "assets/img/packmons/1.png"
-  // cartaid: number=1;
-  // cartalnk:string = "assets/img/packmons/1.png"
-  // cartalnk:string = "../../../../assets/img/packmons/1.png"
-  // cartacapa: string="assets/img/packmons/capa.png";
-  // cartaface: number=1;
 
-  constructor() { }
+  cartacapa: string = "assets/img/packmons/capa.png"
+  cartamostra: string = ""
+
+  @Input() cartalink!: string
+  @Input() cartaobj!: Carta
+
+  constructor(public srv: SrvjogoService) { }
 
   ngOnInit(): void {
-    // let aa = {
-    //   cartaid: number,
-    //   frenteimg: string,
-    //   versoimg: string,
-    //   face: number
-    // }
+  }
+  
+  trocastatuscarta(i:number=-1):void{
+    if(i<0)
+      this.cartaobj.cartaverso = !this.cartaobj.cartaverso
+    else
+      this.srv.cartaobjarray[i].cartaverso = !this.srv.cartaobjarray[i].cartaverso
+  }
+
+
+  checaacerto():void{
+      return
+    }
     
-    // this.cartaid = 1;
-    // this.car.frenteimg = "../../../../assets/img/packmons/1.png";
-    // this.cartaface = 1;
-// this.cartaobj = aa
+  onClick():void{
+  
+    if(this.cartaobj.cartafixa){
+      console.log('Voltou')
+    return
   }
-  onClick(){
-    // alert(this.cartaobj.cartaface)
-   
-   if(this.cartaobj.cartaverso){
-      this.cartaobj.cartaface = "assets/img/packmons/capa.png"
-      this.cartaobj.cartaverso = false
-    }
-    else{
-      this.cartaobj.cartaface = "assets/img/packmons/1.png"
-      this.cartaobj.cartaverso = true
-    }
-     
-    // alert(this.cartaobj.cartaface)
-    // this.cartamostra = this.cartacapa;
+  
+  if(this.srv.jogo===1){
+    this.trocastatuscarta()
+    this.srv.cartaanterior = this.cartaobj.cartaind
+    this.srv.jogo = 2
+    return
+  } 
+  else{
+    this.trocastatuscarta()
+    let ind = this.srv.cartaanterior
+    let cartaanteriorid = ind>=0 ? this.srv.cartaobjarray[this.srv.cartaanterior].cartaid: -1
+    
+    this.srv.jogo = 1
+    
+    if(this.cartaobj.cartaid != cartaanteriorid){
+
+      setTimeout(() => {
+          this.trocastatuscarta(this.srv.cartaanterior)
+          this.trocastatuscarta()
+        }, 1000)
+      }
+   else{
+ 
+    this.cartaobj.cartafixa = true
+    this.srv.cartaobjarray[this.srv.cartaanterior].cartafixa = true
   }
+}
+}
 }

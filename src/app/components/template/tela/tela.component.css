@@ -1,0 +1,32 @@
+*{
+    margin:0px;
+    pad: 0px;
+    background-color: darkgray;
+}
+.lista{
+    width: 18%;
+    /* margin-left: 25rem; */
+    
+    /* margin-top: 80px;
+    margin-right: 50em; */
+    /* border: 3px solid yellow ; */
+  }
+  .conteudo{
+      display: flex;
+      margin-top: 2rem;
+      margin-left: 30rem;
+      justify-items: center;
+      width: 100rem;
+      /* height: 100%; */
+
+      /* border: 3px blue; */
+      
+  }
+  .celula{
+    display: flex;
+    /* margin-left: 50rem;
+    margin-right: 50rem; */
+ 
+    width: 5rem;
+    border: 3px double red ;
+}

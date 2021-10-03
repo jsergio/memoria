@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
 export interface Carta {
   cartaface: string,
   cartaid: number,
-  cartaverso: boolean
+  cartaverso: boolean,
+  cartaind: number,
+  cartafixa: boolean
 }
 
 
@@ -17,18 +19,44 @@ export interface Carta {
 
 export class TelaComponent implements OnInit {
 
-  telaarray: number[]=[1,2,3,4,5,6]
-  cartaobjarray: Carta[]=[]
+  // telaarray: number[]=[]
+  // cartaobjarray: Carta[]=[]
+  // cartacapa : String= "assets/img/packmons/capa.png" 
 
-  constructor(private srv: SrvjogoService) {
-    
-  } 
+  constructor(public srv: SrvjogoService) {
 
-  ngOnInit(): void {
-    // const t:number=this.telaarray.length()
-    // for(let i:number=0;i<t;i++){
-
-    }
   }
 
-// }
+  // criaarray(tam:number=0):number[]{
+  //   let temp: number[] = []
+  //   for(let i=1;i<=tam;i++)
+  //      temp.push(i)
+  //    return temp;  
+  // }
+
+  // criacartaobjarray(){
+  //   for (let i in this.telaarray) {
+  //     this.cartaobjarray.push({
+  //       cartaface : `assets/img/packmons/${this.telaarray[i]}.png`,
+  //       cartaid : +i,
+  //       cartaverso : true          
+  //       }
+  //      )    
+  //   }
+  // }
+  ngOnInit(): void {
+
+  }
+
+  // onClick(i:any){
+
+  //   if(this.cartaobjarray[i].cartaverso){
+  //     this.cartaobjarray[i].cartaface = "assets/img/packmons/capa.png"
+  //     this.cartaobjarray[i].cartaverso = false
+  //   }
+  //   else{
+  //     this.cartaobjarray[i].cartaface = "assets/img/packmons/1.png"
+  //     this.cartaobjarray[i].cartaverso = true
+  //   }       
+  // }
+}

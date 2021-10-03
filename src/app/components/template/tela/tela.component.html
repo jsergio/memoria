@@ -1,1 +1,23 @@
-<p>tela works!</p>
+<div class="conteudo">
+<mat-grid-list 
+    cols="4" 
+    md-gutter="2px" 
+    rowHeight="1:1" 
+    class="lista"
+>
+  <mat-grid-tile 
+  *ngFor="let y of this.srv.telaarray;let i=index"
+   >
+   <app-carta 
+    
+   [cartaobj]="this.srv.cartaobjarray[i]" 
+   [cartalink]="this.srv.cartaobjarray[i].cartaface"
+    
+    >
+   </app-carta>
+  </mat-grid-tile>
+  
+</mat-grid-list>
+</div>
+<!-- cartaobj={{cartaobjarray[i]}} -->
+<!-- (click)="onClick(i)" -->

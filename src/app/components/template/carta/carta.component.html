@@ -25,5 +25,9 @@ cols="2" md-gutter="2px" rowHeight="1:1" class="lista">
 </mat-grid-list>
 </div> -->
 
-<img mat-card-SM-image src={{cartaobj.cartaface}} alt="Falhou" 
- (click) = "onClick()"  layout-fill class="tile-image">
+<img mat-card-SM-image 
+   [src]="cartaobj.cartaverso ? srv.cartacapa : cartaobj.cartaface" 
+   alt="Falhou" 
+   layout-fill class="tile-image"
+   (click)="onClick()"
+   >

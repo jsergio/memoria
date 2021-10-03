@@ -1,7 +1,11 @@
 .tile-image {
-    width:8em;
-    height: auto;
-    border: 3px double blue  ;
+    width: 3.5rem;
+    height: 4rem;
+    /* border: 3px double blue  ; */
+  }
+  .tile-image:hover{
+    width: 4rem;
+    height: 5rem;
   }
 .lista{
   width: 20%;

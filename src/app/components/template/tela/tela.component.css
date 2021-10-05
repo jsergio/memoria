@@ -4,7 +4,7 @@
     background-color: darkgray;
 }
 .lista{
-    width: 18%;
+    width: 40%;
     /* margin-left: 25rem; */
     
     /* margin-top: 80px;
@@ -13,10 +13,11 @@
   }
   .conteudo{
       display: flex;
+      justify-content: center;
       margin-top: 2rem;
-      margin-left: 30rem;
-      justify-items: center;
-      width: 100rem;
+      /* margin-left: 30rem; */
+      /* justify-items: center; */
+      width: 40rem;
       /* height: 100%; */
 
       /* border: 3px blue; */
@@ -27,6 +28,6 @@
     /* margin-left: 50rem;
     margin-right: 50rem; */
  
-    width: 5rem;
+    width: 10rem;
     border: 3px double red ;
 }

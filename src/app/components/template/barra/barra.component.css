@@ -1,0 +1,26 @@
+
+*{
+    padding: 0px;
+    height: 2rem;
+}
+.barra{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* justify-items: center; */
+    /* border: 8px rgb(1, 39, 39); */
+    width: 100%;
+
+}
+.title-group{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    /* pad: 0px; */
+    padding: 0px;
+    width: 100%;
+    /* background-color: rgb(199, 192, 192); */
+    /* background-color: aquamarine; */
+}

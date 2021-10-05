@@ -1,4 +1,33 @@
 <div class="appdiv">
-   <app-tela></app-tela>
+  <app-barra></app-barra>
+
+  <div class="content">
+    <div class="cl1">
+
+      <form name="dadosForm" action="assets/server/server" method="post">
+        <div class="itemform, primeiro">
+        <input type="text" name=´nome´ placeholder="Digite seu nome">
+      </div>
+      <div class="itemform">
+        <select name="nivel" id="nivel">
+          <option value="">Nivel</option>
+          <option value="1">nivel 1</option>
+          <option value="2">nivel 2</option>
+          <option value="3">nivel 3</option>
+        </select>
+      </div>
+      <div class="itemform">
+        <input type="button" value="ENTER">
+      </div>
+      </form>
+    </div>
+    <div>
+      <app-tela></app-tela>
+    </div>
+
+    <div class="cl2">
+      <h1>La La La </h1>
+    </div>
+
+  </div>
 </div>
-<!-- <app-carta></app-carta> -->

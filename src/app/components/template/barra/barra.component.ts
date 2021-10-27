@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+//     let dataatual = new Date()
+//     console.log(dataatual)
+//     let dataParametro = Date.now();
+// console.log(dataParametro);
+   }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,7 @@
 <div class="conteudo">
+  <!-- <p>{{jogoatual|json}}</p>   -->
 <mat-grid-list 
-    cols="4" 
+    [cols]=this.srv.niveis[this.srv.nivel].colunas 
     md-gutter="2px" 
     rowHeight="1:1" 
     class="lista"
@@ -18,6 +19,7 @@
   </mat-grid-tile>
   
 </mat-grid-list>
+<!-- <p>{{jogoatual|json}}</p> -->
 </div>
 <!-- cartaobj={{cartaobjarray[i]}} -->
 <!-- (click)="onClick(i)" -->

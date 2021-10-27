@@ -1,15 +1,31 @@
-<div class="appdiv">
+<div class="appdiv fullscreen">
   <app-barra></app-barra>
 
   <div class="content">
     <div class="cl1">
-
-      <form name="dadosForm" action="assets/server/server" method="post">
-        <div class="itemform, primeiro">
-        <input type="text" name=´nome´ placeholder="Digite seu nome">
+      <form #dadosForm="ngForm" 
+      (ngSubmit)="mostra(dadosForm.value)"
+      >
+      <!-- <form name="dadosForm" action="assets/server/server" method="post"> -->
+        <div class="form-group itemform, primeiro">
+          <input ngModel name="nome" 
+          type="text" class="form-control" id="nome"
+          placeholder="Digite seu nome"
+          >
+          
+        <!-- <input type="text" name=´nome´ placeholder="Digite seu nome"> -->
       </div>
-      <div class="itemform">
-        <select name="nivel" id="nivel">
+      <div class="form-group itemform">
+        <input required ngModel name="senha" 
+        type="password" class="form-control" 
+        id="senha"
+        placeholder="Digite sua senha"
+        >
+      <!-- <input type="text" name=´nome´ placeholder="Digite seu nome"> -->
+    </div>
+
+      <div class="form-group itemform">
+        <select class="form-control" name="nivel" ngModel id="nivel">
           <option value="">Nivel</option>
           <option value="1">nivel 1</option>
           <option value="2">nivel 2</option>
@@ -17,11 +33,12 @@
         </select>
       </div>
       <div class="itemform">
-        <input type="button" value="ENTER">
+        <input type="submit" value="ENTER" >
       </div>
+      <!-- <p>{{dadosForm.value | json}}</p> -->
       </form>
     </div>
-    <div>
+    <div [hidden]='escondido'>
       <app-tela></app-tela>
     </div>
 

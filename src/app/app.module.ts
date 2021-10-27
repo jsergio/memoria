@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { CartaComponent } from './components/template/carta/carta.component';
@@ -24,6 +25,7 @@ import { BarraComponent } from './components/template/barra/barra.component';
     MatCardModule,
     MatGridListModule,
     MatToolbarModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

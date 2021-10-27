@@ -1,6 +1,12 @@
 import { OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 
+export interface Niveis{
+  nivel:number,
+  colunas:number,
+  figuras:number
+}
+
 export interface Carta {
   cartaface: string,
   cartaid: number,
@@ -18,19 +24,41 @@ export interface Carta {
 export class SrvjogoService implements OnInit {
 
   jogo: number = 1;
+  nivel:number= 2;
 
   telaarray: number[] = []
   cartaobjarray: Carta[] = []
   cartacapa: String = "assets/img/packmons/capa.png"
   cartaanterior: number = 0
 
+  niveis:Niveis[]=[
+  {
+    nivel:1,
+    colunas:4,
+    figuras:8
+  },
+  {
+    nivel:2,
+    colunas:5,
+    figuras:10
+  },
+  {
+    nivel:3,
+    colunas:6,
+    figuras:12
+  },
+ ]
+ 
   constructor() {
-    this.telaarray = this.criaarray(8)
+    // console.log(this.cartaobjarray)
+  }
+ 
+  iniciar(){
+    this.telaarray = this.criaarray(this.niveis[this.nivel].figuras)
     this.telaarray = this.duplica(this.telaarray)
     this.telaarray = this.shuffledArr(this.telaarray)
-    console.log(this.telaarray)
+    // console.log(this.telaarray)
     this.criacartaobjarray()
-    console.log(this.cartaobjarray)
   }
 
   ngOnInit(): void {
@@ -44,6 +72,7 @@ export class SrvjogoService implements OnInit {
   }
 
   criacartaobjarray() {
+    this.cartaobjarray = []
     for (let i in this.telaarray) {
       this.cartaobjarray.push({
         cartaface: `assets/img/packmons/${this.telaarray[i]}.png`,

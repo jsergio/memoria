@@ -1,6 +1,6 @@
-import { SrvjogoService } from './../../services/srvjogo.service';
+import { Niveis, SrvjogoService } from './../../services/srvjogo.service';
 import { Component, OnInit } from '@angular/core';
-
+import { ServicesbdService } from './../../services/servicesbd.service'
 
 export interface Carta {
   cartaface: string,
@@ -19,11 +19,19 @@ export interface Carta {
 
 export class TelaComponent implements OnInit {
 
-  constructor(public srv: SrvjogoService) {
+  // nivelatual:number=   this.jogoatual = this.srv.niveis[this.srv.nivel]   this.jogoatual = this.srv.niveis[this.srv.nivel]
+  jogoatual:Niveis = this.srv.niveis[this.srv.nivel]
+
+  constructor(public srv: SrvjogoService,
+   public srvdb: ServicesbdService) {
 
   }
 
   ngOnInit(): void {
 
+    this.jogoatual = this.srv.niveis[this.srv.nivel]
+    // this.srv.iniciar()
+
+   console.log(this.srvdb.usarray)
   }
 }

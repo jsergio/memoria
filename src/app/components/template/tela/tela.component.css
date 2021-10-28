@@ -5,7 +5,9 @@
     background-color: darkgray;
 }
 .lista{
-    width: 52%;
+    /* width: 60%; */
+    width: 100vmin;
+    height: 100vmin;
     /* margin-left: 25rem; */
 /* background-color: yellow;     */
     /* margin-top: 80px;
@@ -18,7 +20,9 @@
       /* margin-top: 1%; */
       /* margin-left: 30rem; */
       /* justify-items: center; */
-      width: 40rem;
+      /* width: 40rem; */
+      width: 100vmin;
+      height: 100vmax;
       /* height: 100%; */
 /* background-color: yellow; */
       /* border: 3px blue; */

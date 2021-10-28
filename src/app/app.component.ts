@@ -2,6 +2,12 @@ import { Component, OnInit, NgModule } from '@angular/core';
 // import { NgModel } from '@angular/forms';
 import { SrvjogoService } from './components/services/srvjogo.service';
 
+export interface Model {
+  id?:number,
+  nome:string,
+  nivel:number
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.command.html',
@@ -10,9 +16,16 @@ import { SrvjogoService } from './components/services/srvjogo.service';
 
 export class AppComponent implements OnInit {
   
-  title = 'memoria';
-
+  model:Model=
+  {
+    id:0,
+    nome:'',
+    nivel:1
+  }
+  
   escondido = true;
+  
+  title = 'Jogo Memoria';
 
   mostra(prm:any){
     this.escondido = true
@@ -25,10 +38,7 @@ export class AppComponent implements OnInit {
     // console.log('aqui')
     // // let nome=form.name
   }
-  constructor(public srv: SrvjogoService)
-  {
- 
-   }
+  constructor(public srv: SrvjogoService){}
  
   ngOnInit(): void {
   }

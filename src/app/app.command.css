@@ -1,47 +1,87 @@
+*{
+    margin-left: 0%;
+    padding: 0%;
+}
 .appdiv{
     display: grid;
+    grid-template-areas: 
+        "barra"
+        "content";
+        /* "rodape"; */
+    grid-template-columns: auto;
+    grid-template-rows: 50px auto ; 
     /* background-color: blue; */
+    width: 100%;
+    height: 100%;
     /* margin-top:10px; */
     /* justify-content: center; */
     /* align-items: center; */
 }
 .content{
-    display:flex;
+    display:grid;
+    grid-template-areas: 
+    Cl1
+    Cl2
+    Cl3;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: auto ; 
+
     width: 100%;
+    /* background-color: yellow; */
 }
-.cl1{
-    display: flex;
-    justify-content: center;
-    width: 30%;
+.Cl1{
+    display: block;
+    /* justify-content: center; */
+    /* margin-top: 4%; */
+    width: 100%;
     height: 100rem;
-    /* background-color: rgb(135, 135, 221); */
+    background-color:burlywood;
 }
 .itemform{
-    display: flex;
-    margin: 5%;
-    padding-left: 10px;
+    display: block !important;
+    /* margin: 10px; */
+    /* margin: 5%; */
+    padding: 2px;
     /* margin-top: 5px; */
-    justify-content: center;
-/* align-self: center; */
+    /* justify-content: center;  */
+    /* align-self: center;  */
 }
+
 .primeiro{
     margin-top: 10%;
     /* margin: 5%; */
-    padding-left: 10px;
+    /* padding-left: 10px; */
     
 }
-.cl2{
-    display: flex;
+.Cl2{
+    display: block;
     /* justify-content: flex-end; */
-    width: 30%;
+    width: 100%;
     height: 100rem;
-    /* background-color: rgb(121, 121, 90); */
+    background-color: blue;
 }
 .fullscreen {
+    display: flex;
     width: 100vw;
     height: 100vh;
-    position: fixed;
+    /* /* position: fixed;
     top: 0;
-    left: 0;
+    left: 0;  */
   }
   
+  .Cl3{
+      /* display: flex; */
+      /* justify-content: center; */
+      /* margin-top: 3%; */
+      background-color: yellow;
+      /* width: 30%; 
+      height: 40%; */
+  }
+
+  .ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }

@@ -6,8 +6,8 @@
 }
 .lista{
     /* width: 60%; */
-    width: 100vmin;
-    height: 100vmin;
+    width: 85vmin;
+    height: 80vmin;
     /* margin-left: 25rem; */
 /* background-color: yellow;     */
     /* margin-top: 80px;
@@ -34,5 +34,5 @@
     margin-right: 50rem; */
  
     width: 10rem;
-    border: 3px double red ;
+    /* border: 3px double red ; */
 }

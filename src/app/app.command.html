@@ -1,68 +1,144 @@
 <div class="fullscreen, appdiv">
+
 <div class = 'barra'>
   <app-barra></app-barra>
 </div>  
-<!-- </div> -->
-<!-- <div class="container"> -->
+
   <div class="content">
+
     <div class="Cl1">
+      <div class="formulario" *ngIf='!this.srv.telas.tela1'>
       <form #dadosForm="ngForm" 
       (ngSubmit)="mostra(dadosForm.value)"
       >
-        <div class="form-group, itemform">
+        <div class="itemform">
           
           <label for="nome" class='itemform'>Nome:</label>
           
-          <input ngModel id="nome" 
-          type="text" class="form-control itemform" id="nome"
+          <input [(ngModel)]="model.nome" id="nome" 
+          type="text" class="form-control itemform"
           placeholder="Digite seu nome"
-          [(ngModel)]="model.nome"
-          
-          required
+          [(ngModel)]="this.srv.model.nome"
+          required   
+          pattern="^[a-zA-Z ]{3,15}$"
           name="nome"
           #nome="ngModel"
+          autofocus
           >
-          <p [hidden]="nome.valid || nome.pristine">
-            Obrigatorio     
-          </p>
+
+            <div *ngIf="!nome.pristine && ((nome.touched && !nome.valid))" class='err'>
+            <div *ngIf="nome.errors?.required">
+              Campo Obrigat&oacute;rio     
+            </div>
+            <div *ngIf="nome.errors?.pattern">
+              M&iacute;nnimo de 3 e m&aacute;ximo de 15 caracteres alfab&eacute;ticos     
+            </div>            
+          </div>
           <p></p>
         </div>
    
-
-    <!-- </div> -->
-
-      <div class="form-group itemform">
+        <div class="form-group itemform">
         <label for="nivel" class=' itemform'>Nivel:</label>
-        <select class="form-control " name="nivel" ngModel id="nivel" required>
-          <option value="">Nivel</option>
+
+        <select [(ngModel)]="model.nivel" class="form-group itemform" 
+        #nivel="ngModel" name="nivel" id="nivel" required 
+        (change)="valida()">
+          
+          <option value="1" hidden disabled>
+            Escolha um N&iacute;vel
+          </option>
           <option value="1">nivel 1</option>
           <option value="2">nivel 2</option>
           <option value="3">nivel 3</option>
+          <option value="4">nivel 4</option>
+          <option value="5">nivel 5</option>
         </select>
         <p></p>
       </div>
 
       <div class="itemform">
-        <input type="submit" value="ENTER" 
+        <input type="submit" value="INICIAR" 
         class="btn btn-success" 
-        [disabled]="!dadosForm.valid"
+        [disabled]="!sele || !nome.valid"
         >
       </div>
-
     </form>
-    </div>
+    <!-- "touched = {{nome.touched}} valid = {{nome.valid}}  
+    pristine = {{nome.pristine}} 
+    result = {{nome.pristine || ((nome.touched && !nome.valid))}}
+    dirty = {{nome.dirty}}" -->
+   </div>
+   
+    <div class="telafinal" *ngIf="this.srv.telas.telafinal">
+      <h2>
+        <div style="text-align: center;">
+        {{'Parab&eacute;ns '}}{{this.srv.dados.nome}}
+        </div>
+        <div style="text-align: left;margin-top: 4%;">
+        {{"Voc&eacute; completou o jogo no tempo de "}}
+        {{this.srv.strtime}}
+        </div>
+        <div style="text-align: left;margin-top: 4%;">
+        {{'Seu percentual de acertos foi de : '}}{{this.srv.dados.acertos/this.srv.dados.tentativas|percent}}
+        </div>
+        <div class="botoes" style="margin-top: 4%;">
+          <input type="button" class='btn' 
+          style="margin-right: 10px;" 
+          value="Terminar"
+          (click)="this.terminar()"
+          >
+          <input type="button" class='btn' 
+          style="margin-left: 10px;" 
+          value="Continuar"
+          (click)="this.terminar()"
+          >
+        </div>
+      </h2>
+      <!-- <p>
+    
+      </p> -->
+    </div> 
+  </div>
 <!-- </div> -->
-    <div class='Cl2'>
-      <span [hidden]='escondido'>   
+    <div class='Cl2'*ngIf='!this.srv.telas.tela2'>
+      <span>   
         <app-tela></app-tela>
       </span>
     </div>
 
-    <div class="Cl3">
-      <h4>Meu Nome:{{model.nome}}</h4>
+    <div class="Cl3" *ngIf='!this.srv.telas.tela3' >
+      <div class="placar formulario">
+        <!-- <div class="Col1">
+          <h4>Nome:</h4>
+        </div>
+        <div class="Col2">
+          <h4>{{this.srv.dados.nome}}</h4>
+        </div> -->
+        <!-- <div class="Col1">
+            <h4>Nivel:</h4>
+        </div>
+        <div class="Col2">
+            <h4>{{this.srv.dados.nivel}}</h4>
+        </div>         -->
+        <!-- <div class="Col1">
+          <h4>Inicio:</h4>
+        </div>
+        <div class="Col2">
+          <h4>{{this.srv.formatadata(this.srv.dados.dtini)}}</h4>
+        </div>  -->
+        <div class="Col1">
+          <h4>Tentativas:</h4>
+        </div>        
+        <div class="Col2">
+          <h3>{{this.srv.dados.tentativas}}</h3>
+        </div>      
+        <div class="Col1">
+          <h4>Acertos:</h4>
+        </div>        
+        <div class="Col2">
+          <h3>{{this.srv.dados.acertos}}</h3>
+        </div>      
+    </div> 
 
-      <!-- <h1>La La La </h1> -->
-    </div>
-
-  <!-- </div> -->
-<!-- </div> -->
+  </div>
+</div>

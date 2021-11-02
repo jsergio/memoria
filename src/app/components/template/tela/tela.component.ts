@@ -24,7 +24,6 @@ export class TelaComponent implements OnInit {
 
   constructor(public srv: SrvjogoService,
    public srvdb: ServicesbdService) {
-
   }
 
   ngOnInit(): void {
@@ -32,6 +31,6 @@ export class TelaComponent implements OnInit {
     this.jogoatual = this.srv.niveis[this.srv.nivel]
     // this.srv.iniciar()
 
-   console.log(this.srvdb.usarray)
+  //  console.log(this.srvdb.usarray)
   }
 }

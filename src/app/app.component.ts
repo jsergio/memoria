@@ -1,4 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
+// import { exit } from 'process';
 // import { NgModel } from '@angular/forms';
 import { SrvjogoService } from './components/services/srvjogo.service';
 
@@ -16,6 +17,7 @@ export interface Model {
 
 export class AppComponent implements OnInit {
   
+  sele:boolean=false
   model:Model=
   {
     id:0,
@@ -23,15 +25,19 @@ export class AppComponent implements OnInit {
     nivel:1
   }
   
-  escondido = true;
+  // escondido = true;
   
-  title = 'Jogo Memoria';
 
+  title = 'Jogo Memoria';
+  
+  valida(){
+   this.sele=true
+  }
   mostra(prm:any){
-    this.escondido = true
+    // this.escondido = true
     this.srv.nivel=prm.nivel-1
-    this.srv.iniciar()
-    this.escondido = false
+    this.srv.iniciar(this.model)
+    // this.escondido = false
     
     // console.log('OKKKKK')
     // console.log(prm)
@@ -42,5 +48,18 @@ export class AppComponent implements OnInit {
  
   ngOnInit(): void {
   }
-  
+
+  terminar(){
+    
+  //  exit()
+  // this.srv.telas.tela1=false
+  // this.srv.telas.tela2=true
+  // this.srv.telas.tela3=true
+  // this.srv.telas.telafinal=false
+  this.srv.reiniciar()
+}
+
+  continuar(){
+    this.srv.reiniciar()
+  }
 }

@@ -1,3 +1,4 @@
+import { Dados } from './../../services/servicesbd.service';
 import { SrvjogoService } from './../../services/srvjogo.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -42,37 +43,52 @@ export class CartaComponent implements OnInit {
     }
     
   onClick():void{
-  
-    if(this.cartaobj.cartafixa){
-      console.log('Voltou')
-    return
-  }
+    const cond:boolean=this.cartaobj.cartaind==this.srv.cartaanterior
+    const numfig:number=this.srv.niveis[this.srv.dados.nivel-1].figuras
+    const ind = this.srv.cartaanterior
+    // console.log('Aqui',cond)
+    if(this.cartaobj.cartafixa||cond){
+      // console.log('Voltou')
+      return
+    }
   
   if(this.srv.jogo===1){
     this.trocastatuscarta()
     this.srv.cartaanterior = this.cartaobj.cartaind
     this.srv.jogo = 2
+    this.srv.dados.tentativas++
     return
   } 
   else{
     this.trocastatuscarta()
-    let ind = this.srv.cartaanterior
-    let cartaanteriorid = ind>=0 ? this.srv.cartaobjarray[this.srv.cartaanterior].cartaid: -1
+    // let ind = this.srv.cartaanterior
+    let cartaanteriorid = ind>=0 ? this.srv.cartaobjarray[ind].cartaid: -1
     
     this.srv.jogo = 1
     
     if(this.cartaobj.cartaid != cartaanteriorid){
 
       setTimeout(() => {
-          this.trocastatuscarta(this.srv.cartaanterior)
+          this.trocastatuscarta(ind)
           this.trocastatuscarta()
         }, 1000)
       }
    else{
- 
     this.cartaobj.cartafixa = true
-    this.srv.cartaobjarray[this.srv.cartaanterior].cartafixa = true
+    this.srv.cartaobjarray[ind].cartafixa = true
+    this.srv.dados.acertos++
+    if(this.srv.dados.acertos == numfig){
+      this.finaliza()
+    }
   }
 }
+return
+}
+
+finaliza():void{
+   this.srv.pauseTimer()
+   this.srv.telas.telafinal=true
+   this.srv.dados.termino=true
+   this.srv.dados.dtfin=Date.now()
 }
 }

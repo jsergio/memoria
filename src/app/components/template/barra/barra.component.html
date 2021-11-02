@@ -1,3 +1,12 @@
 <mat-toolbar class='barra' mat-elevation-z4>
-<h1 class="title-group">JOGO MEMÓRIA</h1>
-</mat-toolbar>
+    <div *ngIf="this.srv.telas.tela1" style="width: 15vmin;">
+        {{this.srv.model.nome}} <span style="margin-right: 20%;">    </span>
+        {{this.srv.formatadata(this.srv.dados.dtini)}}
+    </div>
+    <h1 class="title-group">JOGO MEMÓRIA</h1>
+    <div [hidden]="this.srv.telas.tela3" style="width: 30%;">
+    
+        Nivel: {{this.srv.dados.nivel}} <span style="margin-right: 20%;">    </span>
+        {{this.srv.strtime}} 
+        
+    </div>

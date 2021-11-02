@@ -8,12 +8,19 @@
     display: flex;
     margin: 0px;
     padding: 0px;
-    /* justify-content: center; */
+    justify-content: flex-end;
     /* align-items: center; */
     /* justify-items: center; */
-    /* border: 8px rgb(1, 39, 39); */
+    border: 8px rgb(1, 39, 39);
     width: 100%;
 
+}
+.decorrido{
+    display: flex;
+    width: 40vmin;
+    padding-right: 20px;
+    justify-content: center;
+    /* background-color: yellow !important; */
 }
 .title-group{
     display: flex;
@@ -24,4 +31,12 @@
     width: 100%;
     /* background-color: rgb(199, 192, 192); */
     /* background-color: aquamarine; */
+}
+.item{
+    display: flex;
+    justify-self: flex-start;
+    justify-content: flex-start;
+    /* padding-left: 30px; */
+    /* width: 40vmin; */
+    /* background-color: yellow !important; */
 }

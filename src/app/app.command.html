@@ -70,12 +70,12 @@
    </div>
    
     <div class="telafinal" *ngIf="this.srv.telas.telafinal">
-      <h2>
+      <h4>
         <div style="text-align: center;">
         {{'Parab&eacute;ns '}}{{this.srv.dados.nome}}
         </div>
         <div style="text-align: left;margin-top: 4%;">
-        {{"Voc&eacute; completou o jogo no tempo de "}}
+        {{"Voc&eacute; completou o jogo em "}}
         {{this.srv.strtime}}
         </div>
         <div style="text-align: left;margin-top: 4%;">
@@ -93,7 +93,7 @@
           (click)="this.terminar()"
           >
         </div>
-      </h2>
+      </h4>
       <!-- <p>
     
       </p> -->

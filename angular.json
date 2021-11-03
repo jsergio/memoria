@@ -105,6 +105,10 @@
           "options": {
             "browserTarget": "memoria:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }

@@ -20,7 +20,7 @@
           placeholder="Digite seu nome"
           [(ngModel)]="this.srv.model.nome"
           required   
-          pattern="^[a-zA-Z ]{3,15}$"
+          pattern="^[a-zA-Z\s]{3,15}$"
           name="nome"
           #nome="ngModel"
           autofocus

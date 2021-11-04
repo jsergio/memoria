@@ -74,13 +74,13 @@
   }
   
   .Cl3{
-      font-size: 0.8em;
+      font-size: 1em;
       font-weight: lighter;
       width: 100%;
       /* display: flex; */
       /* justify-content: center; */
       /* margin-top: 3%; */
-      background-color: red;
+      /* background-color: red; */
       /* width: 30%; 
       height: 40%; */
   }
@@ -104,12 +104,12 @@
       Col2;
       grid-template-columns: auto auto;
       grid-template-rows: auto auto auto ;
-      font-size: 0.8em;
+      font-size: 1.1em;
       font-weight: lighter;
       /* justify-content: center;
       align-content: center;
        */
-       background-color: yellow;
+       /* background-color: yellow; */
        width: 100%;
   }
   .Col1{
@@ -142,7 +142,7 @@
 .err{
     padding: 5px;
     width: 86%;
-    background-color: red;;
+    /* background-color: red;; */
 }
 input:focus{
     outline: none;

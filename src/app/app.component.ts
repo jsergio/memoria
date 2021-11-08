@@ -1,6 +1,5 @@
+import { ServicesbdService } from './components/services/servicesbd.service';
 import { Component, OnInit, NgModule } from '@angular/core';
-// import { exit } from 'process';
-// import { NgModel } from '@angular/forms';
 import { SrvjogoService } from './components/services/srvjogo.service';
 
 export interface Model {
@@ -37,6 +36,11 @@ export class AppComponent implements OnInit {
     // this.escondido = true
     this.srv.nivel=prm.nivel-1
     this.srv.iniciar(this.model)
+
+    this.srv.telas.tela1 = false
+    this.srv.telas.tela2 = true
+    this.srv.telas.tela3 = true
+    this.srv.telas.telafinal = false
     // this.escondido = false
     
     // console.log('OKKKKK')
@@ -44,18 +48,18 @@ export class AppComponent implements OnInit {
     // console.log('aqui')
     // // let nome=form.name
   }
-  constructor(public srv: SrvjogoService){}
+  constructor(public srv: SrvjogoService,
+              public srvdb:ServicesbdService){}
  
   ngOnInit(): void {
   }
 
   terminar(){
     
-  //  exit()
-  // this.srv.telas.tela1=false
-  // this.srv.telas.tela2=true
-  // this.srv.telas.tela3=true
-  // this.srv.telas.telafinal=false
+
+  this.srvdb.dados=this.srv.dados
+  this.srvdb.salvaarray();
+  console.log('Termino',this.srvdb.dados)
   this.srv.reiniciar()
 }
 

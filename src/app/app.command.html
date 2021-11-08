@@ -7,7 +7,7 @@
   <div class="content">
 
     <div class="Cl1">
-      <div class="formulario" *ngIf='!this.srv.telas.tela1'>
+      <div class="formulario" *ngIf='this.srv.telas.tela1'>
       <form #dadosForm="ngForm" 
       (ngSubmit)="mostra(dadosForm.value)"
       >
@@ -100,13 +100,13 @@
     </div> 
   </div>
 <!-- </div> -->
-    <div class='Cl2'*ngIf='!this.srv.telas.tela2'>
+    <div class='Cl2'*ngIf='this.srv.telas.tela2'>
       <span>   
         <app-tela></app-tela>
       </span>
     </div>
 
-    <div class="Cl3" *ngIf='!this.srv.telas.tela3' >
+    <div class="Cl3" *ngIf='this.srv.telas.tela3' >
       <div class="placar formulario">
         <!-- <div class="Col1">
           <h4>Nome:</h4>

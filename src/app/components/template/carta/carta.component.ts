@@ -19,7 +19,7 @@ export interface Carta {
 export class CartaComponent implements OnInit {
         
 
-  cartacapa: string = "assets/img/packmons/capa.png"
+  cartacapa: string = this.srv.cartacapa   //"assets/img/packmons/capa.png"
   cartamostra: string = ""
 
   @Input() cartalink!: string

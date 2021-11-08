@@ -144,10 +144,16 @@ export class SrvjogoService implements OnInit {
     this.time = 0
     console.log('PEGADADOS')
     this.srvdb.pegadados()
-     const inovo:number = this.srvdb.banco.length - 1
-     const idnovo:number=this.srvdb.banco[inovo].id+1
-    this.dados.id = this.srvdb.banco==null ? 0 : idnovo
-    console.log('DADOS INICIAIS',this.dados)
+    if(this.srvdb.banco.length>0)
+     {
+        const inovo:number = this.srvdb.banco.length - 1
+        const idnovo:number=this.srvdb.banco[inovo].id+1
+        this.dados.id = this.srvdb.banco==null ? 0 : idnovo
+        console.log('DADOS INICIAIS',this.dados)
+      } else {
+      this.dados.id=0
+      console.log('DADOS INICIAIS',this.dados)
+    }
     // if(this.srvdb.pegadados()){
     //   this.dados.id= this.srvdb.banco.length
     //   console.log('Pegou Banco: ',this.srvdb.banco)

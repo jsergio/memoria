@@ -1,6 +1,7 @@
-import { Dados } from './../../services/servicesbd.service';
+// import { Dados } from './../../services/servicesbd.service';
 import { SrvjogoService } from './../../services/srvjogo.service';
 import { Component, OnInit, Input } from '@angular/core';
+// import { config } from 'process';
 
 export interface Carta {
   cartaface: string,
@@ -77,7 +78,9 @@ export class CartaComponent implements OnInit {
     this.cartaobj.cartafixa = true
     this.srv.cartaobjarray[ind].cartafixa = true
     this.srv.dados.acertos++
+    console.log('ACERTOS',this.srv.dados.acertos,'NUMFIG ',numfig);
     if(this.srv.dados.acertos == numfig){
+      console.log('FINALIZA');  
       this.finaliza()
     }
   }
@@ -86,7 +89,11 @@ return
 }
 
 finaliza():void{
-   this.srv.pauseTimer()
+   if(this.srv.interval)
+     {
+      this.srv.pauseTimer()
+      this.srv.interval=null
+     }
    this.srv.telas.telafinal=true
    this.srv.dados.termino=true
    this.srv.dados.dtfin=Date.now()

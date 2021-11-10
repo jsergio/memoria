@@ -1,6 +1,3 @@
-// import { Dados } from './../../../../memoria/src/app/components/services/servicesbd.service';
-// import { SrvjogoService } from './srvjogo.service';
-// import usrjson from '../../../assets/dados/usr.json';
 import { Injectable } from '@angular/core';
 
 
@@ -92,12 +89,36 @@ export class ServicesbdService {
     return n2!=0 ? (n1*100)/n2 : 0
   }
 
+  idmax(p:Dados[]):number{
+    let result = 0
+
+    if(p==null || p==[])
+       result = 0
+    else  {
+    if(p.length<3){
+      console.log('IDMAX AQUI',result)
+      result = p.length-1
+    }
+    else {
+     const fun = (r:number,v:Dados,i:number,a:Dados[]) => (v.id > a[r].id) ? i : r;
+     result = p.reduce(fun,0)+1
+    }
+    }  
+    console.log('IDMAX ',result)
+    return result
+  }
+
   pegadados():any{
     // this.remove('memoria')
     this.banco=this.get('memoria')
-    const imin=this.achamin(this.banco)
-    console.log('IMIN = ',imin)
-    console.log('Pegou',this.banco)
+    if(this.banco && this.banco != null)
+    {
+      const imin=this.achamin(this.banco)
+      console.log('IMIN = ',imin)
+      console.log('PEGOU ',this.banco,'IDMAX',this.idmax(this.banco))
+    } else{
+      console.log('Banco Vazio',this.banco)
+    }
   }
   
   achamin(p:Dados[]):number{
@@ -140,7 +161,8 @@ export class ServicesbdService {
       this.banco=[]
     }
     this.banco.push(this.dados);
-    console.log('BANCO',this.banco.length)
+    console.log('DADOS FINAIS',this.banco)
+    console.log('BANCO GUARDADO',this.banco)
     // return false
     this.remove('memoria')   
     return this.set('memoria',this.banco)

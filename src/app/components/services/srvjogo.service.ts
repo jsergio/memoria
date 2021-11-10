@@ -143,18 +143,20 @@ export class SrvjogoService implements OnInit {
 
     this.time = 0
     console.log('PEGADADOS')
-    // this.srvdb.pegadados()
-    console.log('DADOS INICIAIS',this.dados)
-    // if(this.srvdb.banco.length>0)
-    //  {
-    //     const inovo:number = this.srvdb.banco.length - 1
-    //     const idnovo:number=this.srvdb.banco[inovo].id+1
-    //     this.dados.id = this.srvdb.banco==null ? 0 : idnovo
-    //     console.log('DADOS INICIAIS',this.dados)
-    //   } else {
-    //   this.dados.id=0
-    //   console.log('DADOS INICIAIS',this.dados)
-    // }
+    if(this.srvdb.pegadados()!==null){
+      console.log('DADOS INICIAIS 0',this.dados)
+    if(this.srvdb.banco && this.srvdb.banco.length>0)
+     {
+         console.log('IDMAX',this.srvdb.idmax(this.srvdb.banco))
+        // const inovo:number = this.srvdb.banco.length - 1
+        // const idnovo:number=this.srvdb.banco[inovo].id+1
+        this.dados.id = this.srvdb.idmax(this.srvdb.banco)+1
+        console.log('DADOS INICIAIS 1',this.dados)
+      } else {
+      this.dados.id=0
+      console.log('DADOS INICIAIS 2',this.dados)
+    }
+  }
     // if(this.srvdb.pegadados()){
     //   this.dados.id= this.srvdb.banco.length
     //   console.log('Pegou Banco: ',this.srvdb.banco)
@@ -162,21 +164,29 @@ export class SrvjogoService implements OnInit {
     // // console.log('Telas',this.telas)
     // }
     this.iniciatela()
+    if(!this.interval)
+        this.startTimer()
     return
   }
 
   reiniciar():void {
-    this.model.nome = ''
-    this.model.nivel = 0
+    // this.model.nome = ''
+    // this.model.nivel = 0
 
     // this.srvdb.banco.push(this.dados)
     // if (this.srvdb.salvaarray())
     //   console.log('GRAVOU DADOS')
     this.iniciatela()
 
-    this.dados.nome = ''
+    // this.dados.nome = ''
     this.strtime = ''
     this.time = 0
+    if(this.interval)
+      {
+        this.pauseTimer()
+        this.interval=null
+        this.startTimer()
+      }
     return
   }
 
@@ -184,10 +194,18 @@ export class SrvjogoService implements OnInit {
   }
 
   criaarray(tam: number = 0): number[] {
-    let temp: number[] = []
-    for (let i = 1; i <= tam; i++)
-      temp.push(i)
-    return temp;
+    // let temp: number[] = []
+    let tmp:number[]=[]
+
+    for(let i=1;i<32;i++){
+      tmp.push(i)
+    }
+
+    tmp=this.shuffledArr(tmp)
+
+    // for (let i = 1; i <= tam; i++)
+    //   temp.push(tmp[i])
+    return tmp.slice(0,tam);
   }
 
   criacartaobjarray() {
@@ -197,7 +215,7 @@ export class SrvjogoService implements OnInit {
         cartaface: `assets/img/packmons/${this.telaarray[i]}.png`,
         cartaid: this.telaarray[i],
         cartaverso: true,
-        cartaind: +i,
+        cartaind: +i, //indice da carta no array telaarray
         cartafixa: false
       }
       )

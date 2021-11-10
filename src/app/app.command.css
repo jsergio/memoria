@@ -109,10 +109,11 @@
       font-weight: lighter;
       margin-top: 50%;
       margin-right: 40;
+      color: blue;
       /* justify-content: center;
       align-content: center;
        */
-       background-color: yellow;
+       /* background-color: yellow; */
        width: 100%;
   }
   .Col1{
@@ -133,6 +134,7 @@
  /* align-content: center;   */
  height: 16%;
  width: 90%;
+ color: blue;
  /* background-color: aquamarine;  */
 }
 .botoes{
@@ -143,8 +145,11 @@
     margin: auto;
 }
 .err{
-    padding: 5px;
-    width: 86%;
+    display: flex;
+    padding: 3px;
+    width: 100em;
+    color: red;
+    font-weight:bolder;
     /* background-color: red;; */
 }
 input:focus{

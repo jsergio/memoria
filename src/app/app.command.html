@@ -26,12 +26,12 @@
           autofocus
           >
 
-            <div *ngIf="!nome.pristine && ((nome.touched && !nome.valid))" class='err'>
+          <div *ngIf="!nome.pristine && ((nome.touched && !nome.valid))" class='err'>
             <div *ngIf="nome.errors?.required">
               Campo Obrigat&oacute;rio     
             </div>
             <div *ngIf="nome.errors?.pattern">
-              M&iacute;nnimo de 3 e m&aacute;ximo de 15 caracteres alfab&eacute;ticos     
+              Caracteres alfab&eacute;ticos. <br> M&iacute;nimo de 3 e m&aacute;ximo de 15      
             </div>            
           </div>
           <p></p>

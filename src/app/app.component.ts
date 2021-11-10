@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
 
   this.srvdb.dados=this.srv.dados
   this.srvdb.salvaarray();
-  console.log('Termino',this.srvdb.dados)
+  console.log('Termino SRDB.DADOS',this.srvdb.dados)
   this.srv.reiniciar()
 }
 
